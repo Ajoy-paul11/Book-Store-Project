@@ -46,9 +46,11 @@ function Navbar() {
               {navItems}
             </ul>
           </div>
-          <a className=" text-2xl font-bold">
-            Paul<i>Store</i>
-          </a>
+          <span className=" text-white text-2xl font-bold">
+            <a className=" ">
+              Paul<i className=" text-blue-600">Store</i>
+            </a>
+          </span>
         </div>
         <div className="navbar-end space-x-3">
           <div className="navbar-center hidden lg:flex">
