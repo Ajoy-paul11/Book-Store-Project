@@ -5,7 +5,7 @@
     "title": "Ramayana",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "2",
@@ -13,7 +13,7 @@
     "title": "The Cactus",
     "price": 250,
     "category": "Paid",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "3",
@@ -21,7 +21,7 @@
     "title": "The wings of fire",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "4",
@@ -29,7 +29,7 @@
     "title": "A Hundred is not enough",
     "price": 250,
     "category": "Paid",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "5",
@@ -37,7 +37,7 @@
     "title": "Gita",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "6",
@@ -45,7 +45,7 @@
     "title": "The road not taken",
     "price": 100,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "7",
@@ -53,7 +53,7 @@
     "title": "Gitanjali",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "8",
@@ -61,7 +61,7 @@
     "title": "The Alchamist",
     "price": 300,
     "category": "Paid",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "9",
@@ -69,7 +69,7 @@
     "title": "Bomkesh baksi",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   },
   {
     "id": "10",
@@ -77,6 +77,6 @@
     "title": "Man and Bee",
     "price": 0,
     "category": "Free",
-    "image": "https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books_23-2149342941.jpg?t=st=1722938573~exp=1722942173~hmac=45cbb4294a5f1546555e3beb5e42e1f4ee1b3c68e3443f090664da0bd783dc9d&w=740"
+    "image": "./bookpng.png"
   }
 ]

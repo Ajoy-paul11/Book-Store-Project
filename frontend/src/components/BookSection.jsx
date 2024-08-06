@@ -3,15 +3,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import list from "../../public/list.json";
+import Cards from "./Cards";
 
 function BookSection() {
   const filterData = list.filter((data) => data.category === "Free");
-  console.log(filterData);
 
   var settings = {
     dots: true,
     infinite: false,
-    speed: 1200,
+    speed: 2000,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
@@ -54,32 +54,11 @@ function BookSection() {
             consectetur adipisicing elit. Eligendi, aliquid!
           </p>
         </div>
-        <div>
+        <div className=" mb-12">
           <Slider {...settings}>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
-            <div>
-              <h3>7</h3>
-            </div>
-            <div>
-              <h3>8</h3>
-            </div>
+            {filterData.map((item) => (
+              <Cards item={item} key={item.id} />
+            ))}
           </Slider>
         </div>
       </div>
