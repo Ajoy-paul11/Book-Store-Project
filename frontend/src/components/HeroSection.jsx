@@ -46,7 +46,6 @@ function HeroSection() {
             src={banner}
             className=" w-96 h-96 mix-blend-screen mx-auto md:mt-28"
             alt="banner-image"
-            srcset=""
           />
         </div>
       </div>
