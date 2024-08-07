@@ -1,15 +1,11 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import Footer from "./components/Footer";
-import BookSection from "./components/BookSection";
+import { Footer, Home, Navbar } from "./pages";
 
 function App() {
   return (
     <>
       <Navbar />
-      <HeroSection />
-      <BookSection />
+      <Home />
       <Footer />
     </>
   );

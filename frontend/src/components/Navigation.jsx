@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Navbar() {
+function Navigation() {
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -140,4 +140,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navigation;
