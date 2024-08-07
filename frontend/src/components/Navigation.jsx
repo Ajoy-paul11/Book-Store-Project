@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const [sticky, setSticky] = useState(false);
@@ -21,16 +22,16 @@ function Navigation() {
   const navItems = (
     <>
       <li>
-        <a>Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a>Course</a>
+        <Link to="/course">Course</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to="/About">About</Link>
       </li>
       <li>
-        <a>Contact</a>
+        <Link to="/Contact">Contact</Link>
       </li>
     </>
   );
