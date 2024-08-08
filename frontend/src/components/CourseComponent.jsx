@@ -17,11 +17,11 @@ function CourseComponent() {
           cumque fugit culpa beatae ratione minima earum est odio distinctio
           accusantium doloremque blanditiis! Harum esse enim quia.
         </p>
-        <button className=" mt-6 px-2 py-1 md:px-4 md:py-2 bg-blue-600 text-white text-xl rounded-md">
+        <button className=" mt-6 px-2 py-1 md:px-4 md:py-2 bg-blue-600 text-white text-xl rounded-md hover:bg-blue-800 duration-300">
           <Link to="/">Back</Link>
         </button>
       </div>
-      <div className=" mt-12 grid grid-cols-1 md:grid-cols-4 place-items-center">
+      <div className=" mt-12 grid grid-cols-1 md:grid-cols-4 place-items-center mb-4">
         {list.map((item) => (
           <Cards item={item} className={"w-72"} key={item.key} />
         ))}
