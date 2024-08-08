@@ -1,10 +1,12 @@
 import React from "react";
 
-function Cards({ item }) {
+function Cards({ item, className }) {
   return (
     <>
-      <div className=" mt-6 my-6 pl-3">
-        <div className="card bg-base-100 w-96 shadow shadow-gray-600 hover:scale-105 duration-500 ">
+      <div className=" my-6 pl-3">
+        <div
+          className={`card bg-base-100 shadow shadow-gray-600 hover:scale-105 duration-500 w-72 md:${className}`}
+        >
           <figure>
             <img src={item.image} alt="card-image" />
           </figure>

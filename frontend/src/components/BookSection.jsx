@@ -19,8 +19,8 @@ function BookSection() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -28,9 +28,9 @@ function BookSection() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -54,10 +54,10 @@ function BookSection() {
             consectetur adipisicing elit. Eligendi, aliquid!
           </p>
         </div>
-        <div className=" mb-12">
+        <div className=" px-4 mb-12">
           <Slider {...settings}>
             {filterData.map((item) => (
-              <Cards item={item} key={item.id} />
+              <Cards item={item} className={"w-96"} key={item.id} />
             ))}
           </Slider>
         </div>

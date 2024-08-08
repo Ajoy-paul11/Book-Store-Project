@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navigation() {
   const [sticky, setSticky] = useState(false);
@@ -22,16 +22,36 @@ function Navigation() {
   const navItems = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link to="/course">Course</Link>
+        <NavLink
+          to="/course"
+          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+        >
+          Course
+        </NavLink>
       </li>
       <li>
-        <Link to="/About">About</Link>
+        <NavLink
+          to="/About"
+          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+        >
+          About
+        </NavLink>
       </li>
       <li>
-        <Link to="/Contact">Contact</Link>
+        <NavLink
+          to="/Contact"
+          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+        >
+          Contact
+        </NavLink>
       </li>
     </>
   );
@@ -66,7 +86,7 @@ function Navigation() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
             >
               {navItems}
             </ul>
@@ -79,7 +99,7 @@ function Navigation() {
         </div>
         <div className="navbar-end space-x-3">
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navItems}</ul>
+            <ul className="menu menu-horizontal px-1 ">{navItems}</ul>
           </div>
           <div className=" hidden md:block">
             <label className=" flex px-3 py-2 border rounded-md items-center gap-2">
