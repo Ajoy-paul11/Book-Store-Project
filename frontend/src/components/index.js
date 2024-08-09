@@ -4,6 +4,8 @@ import HeroSection from "./HeroSection"
 import Cards from "./Cards"
 import BookSection from "./BookSection"
 import CourseComponent from "./CourseComponent"
+import SignupComponent from "./SignupComponent"
+import LoginComponent from "./LoginComponent"
 
 
-export { Navigation, FooterComponent, HeroSection, Cards, BookSection, CourseComponent }
+export { Navigation, FooterComponent, HeroSection, Cards, BookSection, CourseComponent, SignupComponent, LoginComponent }

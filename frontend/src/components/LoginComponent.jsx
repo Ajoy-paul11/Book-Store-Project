@@ -1,16 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Signup } from "../pages";
 
 function LoginComponent() {
   return (
     <>
       <div>
-        <dialog id="my_modal_3" className="modal ">
-          <div className="modal-box bg-slate-300 text-black dark:bg-slate-900 dark:text-slate-300">
+        <div className=" h-screen flex justify-center items-center">
+          <div className="modal-box bg-slate-300 text-black dark:bg-slate-900 dark:text-slate-300 shadow-2xl shadow-slate-700/70">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              <Link
+                to="/"
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
                 ✕
-              </button>
+              </Link>
             </form>
             <h3 className="font-bold text-xl  mb-4">Login</h3>
             <div className=" space-y-6">
@@ -38,19 +43,22 @@ function LoginComponent() {
               </div>
               {/* Button field */}
               <div className=" flex justify-around">
-                <button className=" px-3 py-1 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
+                <button className=" px-3 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
                   Login
                 </button>
                 <p>
                   Don't have an account{" "}
-                  <span className=" cursor-pointer underline text-blue-500">
+                  <Link
+                    to="/signup"
+                    className=" cursor-pointer underline text-blue-500"
+                  >
                     Sign up
-                  </span>
+                  </Link>
                 </p>
               </div>
             </div>
           </div>
-        </dialog>
+        </div>
       </div>
     </>
   );

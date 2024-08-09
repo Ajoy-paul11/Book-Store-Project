@@ -6,7 +6,7 @@ import Cards from "./Cards";
 function CourseComponent() {
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
-      <div className="mt-36 flex flex-col justify-center items-center text-center ">
+      <div className="pt-36 flex flex-col justify-center items-center text-center ">
         <h1 className=" font-semibold text-2xl md:text-4xl">
           We're delighted to have you{" "}
           <span className=" text-blue-600">Here!:)</span>

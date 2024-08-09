@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LoginComponent from "./LoginComponent";
 
 function Navigation() {
@@ -188,13 +188,14 @@ function Navigation() {
             </label>
           </div>
           <div className="">
-            <a
+            <Link
+              to="/login"
               className=" bg-slate-400 text-gray-800 px-3 py-2 hover:bg-blue-400 hover:text-white rounded-md duration-300 cursor-pointer"
-              onClick={() => document.getElementById("my_modal_3").showModal()}
+              // onClick={() => document.getElementById("my_modal_3").showModal()}
             >
               Login
-            </a>
-            <LoginComponent />
+            </Link>
+            {/* <LoginComponent /> */}
           </div>
         </div>
       </div>
