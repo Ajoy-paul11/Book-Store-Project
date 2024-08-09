@@ -3,9 +3,9 @@ import React from "react";
 function Cards({ item, className }) {
   return (
     <>
-      <div className=" my-6 pl-3">
+      <div className=" my-6 pl-3 ">
         <div
-          className={`card bg-base-100 shadow shadow-gray-600 hover:scale-105 duration-300 lg:${className}`}
+          className={`card bg-base-100 shadow shadow-gray-600 hover:scale-105 duration-300 lg:${className} bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300`}
         >
           <figure>
             <img src={item.image} alt="card-image" />

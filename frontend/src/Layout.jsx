@@ -4,9 +4,11 @@ import { Navbar, Footer } from "./pages";
 function Layout() {
   return (
     <>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <div className=" bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300">
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </div>
     </>
   );
 }

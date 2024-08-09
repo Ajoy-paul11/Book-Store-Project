@@ -2,9 +2,9 @@ import React from "react";
 
 function FooterComponent() {
   return (
-    <div>
-      <hr />
-      <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
+    <div className=" ">
+      <hr className=" bg-black h-[2px]" />
+      <footer className="footer footer-center   rounded p-10 bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300">
         <nav className="grid grid-flow-col gap-4">
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
@@ -50,10 +50,12 @@ function FooterComponent() {
         </nav>
         <aside>
           <p>
+            {" "}
             Copyright © {new Date().getFullYear()} - All right reserved by{" "}
             <strong>
-              Paul<i>Store</i>
-            </strong>
+              {" "}
+              Paul<i>Store</i>{" "}
+            </strong>{" "}
           </p>
         </aside>
       </footer>

@@ -4,7 +4,9 @@ import { FooterComponent } from "../components";
 function Footer() {
   return (
     <>
-      <FooterComponent />
+      <div className="">
+        <FooterComponent />
+      </div>
     </>
   );
 }

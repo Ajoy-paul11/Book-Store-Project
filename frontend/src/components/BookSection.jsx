@@ -8,13 +8,41 @@ import Cards from "./Cards";
 function BookSection() {
   const filterData = list.filter((data) => data.category === "Free");
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          background: "black",
+          borderRadius: "99px",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, background: "black", borderRadius: "99px" }}
+        onClick={onClick}
+      />
+    );
+  }
+
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 2000,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -45,7 +73,7 @@ function BookSection() {
 
   return (
     <>
-      <div className="  max-w-screen-2xl container mx-auto md:px-20 px-4">
+      <div className="  max-w-screen-2xl container mx-auto md:px-20 px-4 bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300">
         <div>
           <h1 className=" text-xl font-semibold pb-2">Free Offered Courses </h1>
           <p>
@@ -55,7 +83,7 @@ function BookSection() {
           </p>
         </div>
         <div className=" px-4 mb-12">
-          <Slider {...settings}>
+          <Slider {...settings} className="">
             {filterData.map((item) => (
               <Cards item={item} className={"w-96"} key={item.id} />
             ))}
