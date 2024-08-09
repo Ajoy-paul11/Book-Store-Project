@@ -17,14 +17,15 @@ function SignupComponent() {
             </Link>
           </form>
           <h3 className="font-bold text-xl  mb-4">Signup</h3>
-          <div className=" space-y-6">
+          <div className=" space-y-4 md:space-y-6">
+            {/* Name field */}
             <div className=" space-y-2">
               <label className=" text-base font-semibold">Name</label>
               <br />
               <input
                 type="text"
                 placeholder="Enter your email"
-                className=" input px-3 w-96 bg-slate-300 outline-black
+                className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
               />
             </div>
@@ -35,7 +36,7 @@ function SignupComponent() {
               <input
                 type="text"
                 placeholder="Enter your email"
-                className=" input px-3 w-96 bg-slate-300 outline-black
+                className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
               />
             </div>
@@ -46,17 +47,17 @@ function SignupComponent() {
               <input
                 type="text"
                 placeholder="Enter your password"
-                className=" input px-3 w-96 bg-slate-300 outline-black
+                className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
               />
             </div>
             {/* Button field */}
-            <div className=" flex justify-around">
-              <button className=" px-3 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
+            <div className=" flex justify-around items-center">
+              <button className=" px-2 md:px-3 py-1 md:py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
                 Signup
               </button>
               <p>
-                Have an account{" "}
+                Have an account❗{" "}
                 <Link
                   to="/login"
                   //   onClick={() =>

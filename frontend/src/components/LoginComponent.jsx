@@ -18,7 +18,7 @@ function LoginComponent() {
               </Link>
             </form>
             <h3 className="font-bold text-xl  mb-4">Login</h3>
-            <div className=" space-y-6">
+            <div className=" space-y-4 md:space-y-6">
               {/* Email field */}
               <div className=" space-y-2">
                 <label className=" text-base font-semibold">Email</label>
@@ -26,7 +26,7 @@ function LoginComponent() {
                 <input
                   type="text"
                   placeholder="Enter your email"
-                  className=" input px-3 w-96 bg-slate-300 outline-black
+                  className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                 />
               </div>
@@ -37,17 +37,17 @@ function LoginComponent() {
                 <input
                   type="text"
                   placeholder="Enter your password"
-                  className=" input px-3 w-96 bg-slate-300 outline-black
+                  className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                 />
               </div>
               {/* Button field */}
-              <div className=" flex justify-around">
+              <div className=" flex justify-around items-center">
                 <button className=" px-3 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
                   Login
                 </button>
-                <p>
-                  Don't have an account{" "}
+                <p className=" flex flex-col items-center">
+                  <span> Don't have an account❓</span>
                   <Link
                     to="/signup"
                     className=" cursor-pointer underline text-blue-500"
