@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import LoginComponent from "./LoginComponent";
 
 function Navigation() {
   const [sticky, setSticky] = useState(false);
@@ -136,7 +137,7 @@ function Navigation() {
             </ul>
           </div>
           <div className=" hidden md:block">
-            <label className=" flex px-3 py-2 border outline rounded-md items-center gap-2">
+            <label className=" flex px-3 py-2 border outline dark:outline-1 rounded-md items-center gap-2">
               <input
                 type="text"
                 className="grow outline-none"
@@ -187,9 +188,13 @@ function Navigation() {
             </label>
           </div>
           <div className="">
-            <a className=" bg-slate-400 text-gray-800 px-3 py-2 hover:bg-slate-200 hover:text-slate-800 rounded-md duration-300">
+            <a
+              className=" bg-slate-400 text-gray-800 px-3 py-2 hover:bg-blue-400 hover:text-white rounded-md duration-300 cursor-pointer"
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+            >
               Login
             </a>
+            <LoginComponent />
           </div>
         </div>
       </div>
