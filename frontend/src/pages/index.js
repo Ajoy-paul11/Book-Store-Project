@@ -3,7 +3,8 @@ import Home from "./Home"
 import Footer from './Footer'
 import Course from "./Course"
 import Signup from "./Signup"
+import Contact from "./Contact"
 
 export {
-    Navbar, Home, Footer, Course, Signup
+    Navbar, Home, Footer, Course, Signup, Contact
 }

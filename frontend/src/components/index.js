@@ -6,6 +6,17 @@ import BookSection from "./BookSection"
 import CourseComponent from "./CourseComponent"
 import SignupComponent from "./SignupComponent"
 import LoginComponent from "./LoginComponent"
+import ContactComponent from "./ContactComponent"
 
 
-export { Navigation, FooterComponent, HeroSection, Cards, BookSection, CourseComponent, SignupComponent, LoginComponent }
+export {
+    Navigation,
+    FooterComponent,
+    HeroSection,
+    Cards,
+    BookSection,
+    CourseComponent,
+    SignupComponent,
+    LoginComponent,
+    ContactComponent,
+}

@@ -23,7 +23,7 @@ function CourseComponent() {
       </div>
       <div className=" mt-12 grid grid-cols-1 md:grid-cols-4 place-items-center mb-4">
         {list.map((item) => (
-          <Cards item={item} className={"w-72"} key={item.key} />
+          <Cards item={item} className={"w-72"} key={item.id} />
         ))}
       </div>
     </div>
