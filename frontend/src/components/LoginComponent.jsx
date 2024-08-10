@@ -1,14 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Signup } from "../pages";
+import { useForm } from "react-hook-form";
 
 function LoginComponent() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <>
       <div>
         <div className=" h-screen flex justify-center items-center">
           <div className="modal-box bg-slate-300 text-black dark:bg-slate-900 dark:text-slate-300 shadow-2xl shadow-slate-700/70">
-            <form method="dialog">
+            <form onSubmit={handleSubmit(onSubmit)} method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <Link
                 to="/"
@@ -16,47 +24,58 @@ function LoginComponent() {
               >
                 ✕
               </Link>
+
+              <h3 className="font-bold text-xl  mb-4">Login</h3>
+              <div className=" space-y-4 md:space-y-6">
+                {/* Email field */}
+                <div className=" space-y-2">
+                  <label className=" text-base font-semibold">Email</label>
+                  <br />
+                  <input
+                    type="text"
+                    placeholder="Enter your email"
+                    className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
+                   dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
+                    {...register("email", { required: true })}
+                  />
+                  {errors.email && (
+                    <span className=" text-red-500">Email is required</span>
+                  )}
+                </div>
+                {/* Password field */}
+                <div className=" space-y-2">
+                  <label className=" text-base font-semibold">Password</label>
+                  <br />
+                  <input
+                    type="password"
+                    placeholder="Enter your password"
+                    className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
+                   dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
+                    {...register("password", { required: true })}
+                  />
+                  {errors.password && (
+                    <span className=" text-red-500">
+                      Password field is required
+                    </span>
+                  )}
+                </div>
+                {/* Button field */}
+                <div className=" flex justify-around items-center">
+                  <button className=" px-3 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
+                    Login
+                  </button>
+                  <p className=" flex flex-col items-center">
+                    <span> Don't have an account❓</span>
+                    <Link
+                      to="/signup"
+                      className=" cursor-pointer underline text-blue-500"
+                    >
+                      Sign up
+                    </Link>
+                  </p>
+                </div>
+              </div>
             </form>
-            <h3 className="font-bold text-xl  mb-4">Login</h3>
-            <div className=" space-y-4 md:space-y-6">
-              {/* Email field */}
-              <div className=" space-y-2">
-                <label className=" text-base font-semibold">Email</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="Enter your email"
-                  className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
-                   dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
-                />
-              </div>
-              {/* Password field */}
-              <div className=" space-y-2">
-                <label className=" text-base font-semibold">Password</label>
-                <br />
-                <input
-                  type="text"
-                  placeholder="Enter your password"
-                  className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
-                   dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
-                />
-              </div>
-              {/* Button field */}
-              <div className=" flex justify-around items-center">
-                <button className=" px-3 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
-                  Login
-                </button>
-                <p className=" flex flex-col items-center">
-                  <span> Don't have an account❓</span>
-                  <Link
-                    to="/signup"
-                    className=" cursor-pointer underline text-blue-500"
-                  >
-                    Sign up
-                  </Link>
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
