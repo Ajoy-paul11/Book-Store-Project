@@ -12,7 +12,7 @@ function Cards({ item, className }) {
           </figure>
           <div className="card-body shadow shadow-gray-600 rounded-2xl">
             <h2 className="card-title">
-              {item.name}
+              {item.genre}
               <div className="badge bg-blue-600 outline-2 border-blue-600 text-white">
                 {item.category}
               </div>

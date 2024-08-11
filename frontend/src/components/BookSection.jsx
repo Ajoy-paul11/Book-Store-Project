@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import list from "../../public/list.json";
 import Cards from "./Cards";
+import axios from "axios";
 
 function BookSection() {
-  const filterData = list.filter((data) => data.category === "Free");
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const getBooksData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/api/v1/books");
+        console.log(response.data);
+        const data = response.data.data.filter(
+          (data) => data.category === "Free"
+        );
+        console.log(data);
+        setBooks(data);
+      } catch (error) {
+        console.log("Error occurred to fetch the book data", error);
+      }
+    };
+    getBooksData();
+  }, []);
+  // const filterData = list.filter((data) => data.category === "Free");
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -84,7 +102,7 @@ function BookSection() {
         </div>
         <div className=" px-4 mb-12">
           <Slider {...settings} className="">
-            {filterData.map((item) => (
+            {books.map((item) => (
               <Cards item={item} className={"w-96"} key={item.id} />
             ))}
           </Slider>
