@@ -12,11 +12,9 @@ function BookSection() {
     const getBooksData = async () => {
       try {
         const response = await axios.get("http://localhost:8000/api/v1/books");
-        console.log(response.data);
         const data = response.data.data.filter(
           (data) => data.category === "Free"
         );
-        console.log(data);
         setBooks(data);
       } catch (error) {
         console.log("Error occurred to fetch the book data", error);
@@ -24,7 +22,6 @@ function BookSection() {
     };
     getBooksData();
   }, []);
-  // const filterData = list.filter((data) => data.category === "Free");
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;

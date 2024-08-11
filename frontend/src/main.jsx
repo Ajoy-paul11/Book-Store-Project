@@ -9,6 +9,7 @@ import Course from "./pages/Course.jsx";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import Contact from "./pages/Contact.jsx";
+import { getAllBooksLoader } from "./components/CourseComponent.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        loader: getAllBooksLoader,
         path: "/course",
         element: <Course />,
       },

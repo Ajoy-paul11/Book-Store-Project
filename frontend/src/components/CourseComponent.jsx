@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cards from "./Cards";
 import axios from "axios";
 
 function CourseComponent() {
   const [books, setBooks] = useState([]);
 
+  const bookData = useLoaderData();
+
   useEffect(() => {
-    const getAllBooks = async () => {
-      const response = await axios.get("http://localhost:8000/api/v1/books");
-      const allBooks = response.data;
-      setBooks(allBooks.data);
-    };
-    getAllBooks();
-  }, []);
+    setBooks(bookData.data);
+  }, [bookData]);
+
+  if (!bookData) {
+    return <dev>Loading</dev>;
+  }
+
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 ">
       <div className="pt-36 flex flex-col justify-center items-center text-center ">
@@ -41,3 +43,13 @@ function CourseComponent() {
 }
 
 export default CourseComponent;
+
+export const getAllBooksLoader = async () => {
+  try {
+    const response = await axios.get("http://localhost:8000/api/v1/books");
+    return response.data;
+  } catch (error) {
+    console.error("Error to get books ", error);
+    return { error: "Failed to load books" };
+  }
+};
