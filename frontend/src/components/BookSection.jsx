@@ -103,7 +103,7 @@ function BookSection() {
         <div className=" px-4 mb-12">
           <Slider {...settings} className="">
             {books.map((item) => (
-              <Cards item={item} className={"w-96"} key={item.id} />
+              <Cards item={item} className={"w-96"} key={item._id} />
             ))}
           </Slider>
         </div>

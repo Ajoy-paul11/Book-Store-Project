@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import list from "../../public/list.json";
 import Cards from "./Cards";
 import axios from "axios";
 
@@ -34,7 +33,7 @@ function CourseComponent() {
       </div>
       <div className=" mt-12 grid grid-cols-1 md:grid-cols-4 place-items-center mb-4">
         {books.map((item) => (
-          <Cards item={item} className={"w-72"} key={item.id} />
+          <Cards item={item} className={"w-72"} key={item._id} />
         ))}
       </div>
     </div>
