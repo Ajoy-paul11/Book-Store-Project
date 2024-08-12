@@ -16,8 +16,10 @@ app.use(cors(
 
 // import routes
 import bookRouter from "./routes/book.routes.js"
+import userRouter from "./routes/user.routes.js"
 
 // routes declaration
 app.use("/api/v1/books", bookRouter)
+app.use("/api/v1/users", userRouter)
 
 export { app }
