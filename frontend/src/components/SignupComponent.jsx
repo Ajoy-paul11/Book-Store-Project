@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function SignupComponent() {
   const {
@@ -9,7 +10,44 @@ function SignupComponent() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userData = {
+      fullName: data.fullName,
+      email: data.email,
+      password: data.password,
+    };
+
+    await axios
+      .post("http://localhost:8000/api/v1/users/register", userData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.data) {
+          alert("User registered successfully👍");
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err.response);
+          extractErrorAndAlert(err.response.data);
+        } else {
+          alert("An error occurred, Please try again");
+        }
+      });
+  };
+
+  function extractErrorAndAlert(htmlResponse) {
+    // Use a regular expression to find the error message
+    const errorRegex = /<pre>Error: (.+?)<br>/;
+    const match = htmlResponse.match(errorRegex);
+
+    if (match && match[1]) {
+      // If a match is found, show it in an alert
+      alert("Error: " + match[1]);
+    } else {
+      // If no match is found, show a generic error message
+      alert("An error occurred. Please try again.");
+    }
+  }
 
   return (
     <>
@@ -35,9 +73,9 @@ function SignupComponent() {
                   placeholder="Enter your email"
                   className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
-                  {...register("name", { required: true })}
+                  {...register("fullName", { required: true })}
                 />
-                {errors.name && (
+                {errors.fullName && (
                   <span className=" text-red-500">Name field is required</span>
                 )}
               </div>
