@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function SignupComponent() {
   const {
@@ -22,12 +23,12 @@ function SignupComponent() {
       .then((res) => {
         console.log(res.data);
         if (res.data.data) {
-          alert("User registered successfully👍");
+          toast.success("User registered successfully👍");
         }
+        localStorage.setItem("Users", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         if (err.response) {
-          console.log(err.response);
           extractErrorAndAlert(err.response.data);
         } else {
           alert("An error occurred, Please try again");
@@ -42,10 +43,10 @@ function SignupComponent() {
 
     if (match && match[1]) {
       // If a match is found, show it in an alert
-      alert("Error: " + match[1]);
+      toast.error("Error: " + match[1]);
     } else {
       // If no match is found, show a generic error message
-      alert("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   }
 
@@ -75,6 +76,7 @@ function SignupComponent() {
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                   {...register("fullName", { required: true })}
                 />
+                <br className=" hidden lg:block" />
                 {errors.fullName && (
                   <span className=" text-red-500">Name field is required</span>
                 )}
@@ -90,6 +92,7 @@ function SignupComponent() {
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                   {...register("email", { required: true })}
                 />
+                <br className=" hidden lg:block" />
                 {errors.email && (
                   <span className=" text-red-500">Email is required</span>
                 )}
@@ -105,6 +108,7 @@ function SignupComponent() {
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                   {...register("password", { required: true })}
                 />
+                <br className=" hidden lg:block" />
                 {errors.password && (
                   <span className=" text-red-500">
                     Password field is required

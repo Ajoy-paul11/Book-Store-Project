@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function LoginComponent() {
   const {
@@ -9,7 +11,42 @@ function LoginComponent() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userData = {
+      email: data.email,
+      password: data.password,
+    };
+
+    await axios
+      .post("http://localhost:8000/api/v1/users/login", userData)
+      .then((res) => {
+        if (res.data.data) {
+          toast.success("User logged In successfully🙏");
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data.data));
+      })
+      .catch((err) => {
+        if (err.response) {
+          extractErrorAndAlert(err.response.data);
+        } else {
+          alert("An error occurred, Please try again");
+        }
+      });
+  };
+
+  function extractErrorAndAlert(htmlResponse) {
+    // Use a regular expression to find the error message
+    const errorRegex = /<pre>Error: (.+?)<br>/;
+    const match = htmlResponse.match(errorRegex);
+
+    if (match && match[1]) {
+      // If a match is found, show it in an alert
+      toast.error("Error: " + match[1]);
+    } else {
+      // If no match is found, show a generic error message
+      toast.error("An error occurred. Please try again.");
+    }
+  }
 
   return (
     <>
@@ -38,6 +75,7 @@ function LoginComponent() {
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                     {...register("email", { required: true })}
                   />
+                  <br className=" hidden lg:block" />
                   {errors.email && (
                     <span className=" text-red-500">Email is required</span>
                   )}
@@ -53,6 +91,7 @@ function LoginComponent() {
                    dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
                     {...register("password", { required: true })}
                   />
+                  <br className=" hidden lg:block" />
                   {errors.password && (
                     <span className=" text-red-500">
                       Password field is required
