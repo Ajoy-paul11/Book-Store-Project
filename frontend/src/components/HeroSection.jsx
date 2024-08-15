@@ -9,7 +9,7 @@ function HeroSection() {
           <div className=" space-y-8">
             <h1 className=" text-4xl font-bold">
               Get lost in the world of words. Start your reading journey
-              <span className=" text-blue-600"> today!!!</span>"
+              <span className=" text-blue-600"> today!!!</span>
             </h1>
             <p className="text-1xl">
               Welcome to{" "}

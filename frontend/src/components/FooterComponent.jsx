@@ -54,7 +54,7 @@ function FooterComponent() {
             Copyright © {new Date().getFullYear()} - All right reserved by{" "}
             <strong>
               {" "}
-              Paul<i>Store</i>{" "}
+              Paul<i className=" text-blue-700">Store</i>{" "}
             </strong>{" "}
           </p>
         </aside>
