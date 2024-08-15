@@ -23,7 +23,6 @@ function SignupComponent() {
     await axios
       .post("http://localhost:8000/api/v1/users/register", userData)
       .then((res) => {
-        console.log(res.data);
         if (res.data.data) {
           toast.success("User registered successfully👍");
           localStorage.setItem("Users", JSON.stringify(res.data.data));

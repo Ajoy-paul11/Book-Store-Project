@@ -4,7 +4,6 @@ import { useAuth } from "../userContext/AuthContext.jsx";
 
 function ProtectedRoute({ children }) {
   const { authUser } = useAuth();
-  console.log(authUser);
 
   const location = useLocation();
 

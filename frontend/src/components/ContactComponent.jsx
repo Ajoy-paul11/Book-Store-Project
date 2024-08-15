@@ -12,8 +12,7 @@ function ContactComponent() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data, e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
     console.log(data);
     emailjs
       .sendForm(
@@ -26,14 +25,12 @@ function ContactComponent() {
       )
       .then(
         () => {
-          console.log("SUCCESS!");
           toast.success("Message sent successful");
           form.current.reset();
         },
         (error) => {
-          console.log("FAILED...", error.text);
           toast.error("Message failed to send");
-          e.target.reload();
+          form.current.reset();
         }
       );
   };
