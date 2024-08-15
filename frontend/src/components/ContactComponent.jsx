@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 function ContactComponent() {
+  const form = useRef();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    console.log(data);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_YOUR_SERVICE_ID,
+        import.meta.env.VITE_YOUR_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: import.meta.env.VITE_YOUR_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          toast.success("Message sent successful");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          toast.error("Message failed to send");
+        }
+      );
+  };
 
   return (
     <>
       <div className=" h-screen flex justify-center items-center">
         <div className="modal-box  bg-slate-300 text-black dark:bg-slate-900 dark:text-slate-300 shadow-2xl shadow-slate-700/70">
-          <form onSubmit={handleSubmit(onSubmit)} method="dialog">
+          <form ref={form} onSubmit={handleSubmit(onSubmit)}>
             <h3 className="font-bold text-2xl md:text-3xl pt-8  mb-4">
               Contact Us
             </h3>
@@ -26,10 +51,11 @@ function ContactComponent() {
                 <br />
                 <input
                   type="text"
-                  placeholder="Enter your email"
+                  name="user_name"
+                  placeholder="Enter your name"
                   className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                        dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
-                  {...register("name", { required: true })}
+                  {...register("user_name", { required: true })}
                 />
                 {errors.name && (
                   <span className=" text-red-500">Name field is required</span>
@@ -41,10 +67,11 @@ function ContactComponent() {
                 <br />
                 <input
                   type="text"
+                  name="user_email"
                   placeholder="Enter your email"
                   className=" input px-3 w-72 md:w-96 bg-slate-300 outline-black
                        dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
-                  {...register("email", { required: true })}
+                  {...register("user_email", { required: true })}
                 />
                 {errors.email && (
                   <span className=" text-red-500">Email is required</span>
@@ -56,6 +83,7 @@ function ContactComponent() {
                 <br />
                 <textarea
                   type="message"
+                  name="message"
                   placeholder="Enter your message"
                   className=" input h-28 px-3 w-72 md:w-96 bg-slate-300 outline-black
                        dark:outline-slate-200 outline outline-1 border-none dark:bg-slate-900 dark:text-slate-300"
@@ -69,7 +97,11 @@ function ContactComponent() {
               </div>
               {/* Button field */}
               <div className=" flex justify-around items-center">
-                <button className=" px-2 md:px-3 py-1 md:py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300">
+                <button
+                  type="submit"
+                  value="Send"
+                  className=" px-2 md:px-3 py-1 md:py-2 rounded-md bg-blue-500 text-white hover:bg-blue-800 duration-300"
+                >
                   Submit
                 </button>
               </div>
