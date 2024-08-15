@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import LoginComponent from "./LoginComponent";
+import { useAuth } from "../userContext/AuthContext.jsx";
+import Logout from "./Logout.jsx";
 
 function Navigation() {
   const [sticky, setSticky] = useState(false);
@@ -35,6 +37,8 @@ function Navigation() {
       localStorage.setItem("theme", "light");
     }
   }, [theme]);
+
+  const { authUser } = useAuth();
 
   const navItems = (
     <>
@@ -188,13 +192,17 @@ function Navigation() {
             </label>
           </div>
           <div className="">
-            <Link
-              to="/login"
-              className=" bg-slate-400 text-gray-800 px-3 py-2 hover:bg-blue-400 hover:text-white rounded-md duration-300 cursor-pointer"
-              // onClick={() => document.getElementById("my_modal_3").showModal()}
-            >
-              Login
-            </Link>
+            {authUser ? (
+              <Logout />
+            ) : (
+              <Link
+                to="/login"
+                className=" bg-slate-400 text-gray-800 px-3 py-2 hover:bg-blue-400 hover:text-white rounded-md duration-300 cursor-pointer"
+                // onClick={() => document.getElementById("my_modal_3").showModal()}
+              >
+                Login
+              </Link>
+            )}
             {/* <LoginComponent /> */}
           </div>
         </div>

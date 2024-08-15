@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 function LoginComponent() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -22,8 +24,10 @@ function LoginComponent() {
       .then((res) => {
         if (res.data.data) {
           toast.success("User logged In successfully🙏");
+          localStorage.setItem("Users", JSON.stringify(res.data.data));
+          navigate("/");
+          window.location.reload();
         }
-        localStorage.setItem("Users", JSON.stringify(res.data.data));
       })
       .catch((err) => {
         if (err.response) {

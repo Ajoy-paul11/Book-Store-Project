@@ -10,6 +10,8 @@ import Login from "./pages/Login.jsx";
 import Contact from "./pages/Contact.jsx";
 import { getAllBooksLoader } from "./components/CourseComponent.jsx";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "./userContext/AuthContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,11 +25,19 @@ const router = createBrowserRouter([
       {
         loader: getAllBooksLoader,
         path: "/course",
-        element: <Course />,
+        element: (
+          <ProtectedRoute>
+            <Course />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <ProtectedRoute>
+            <Contact />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -43,7 +53,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <Toaster />
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <Toaster />
+    </AuthProvider>
   </React.StrictMode>
 );
