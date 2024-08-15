@@ -28,10 +28,12 @@ function ContactComponent() {
         () => {
           console.log("SUCCESS!");
           toast.success("Message sent successful");
+          form.current.reset();
         },
         (error) => {
           console.log("FAILED...", error.text);
           toast.error("Message failed to send");
+          e.target.reload();
         }
       );
   };

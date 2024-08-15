@@ -7,6 +7,7 @@ import CourseComponent from "./CourseComponent"
 import SignupComponent from "./SignupComponent"
 import LoginComponent from "./LoginComponent"
 import ContactComponent from "./ContactComponent"
+import AboutComponent from "./AboutComponent"
 
 
 export {
@@ -19,4 +20,5 @@ export {
     SignupComponent,
     LoginComponent,
     ContactComponent,
+    AboutComponent
 }

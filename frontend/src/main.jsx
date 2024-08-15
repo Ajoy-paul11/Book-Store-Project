@@ -12,6 +12,7 @@ import { getAllBooksLoader } from "./components/CourseComponent.jsx";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "./userContext/AuthContext.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import About from "./pages/About.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             <Contact />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
