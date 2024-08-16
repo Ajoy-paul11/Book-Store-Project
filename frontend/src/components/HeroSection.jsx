@@ -1,7 +1,13 @@
 import React from "react";
 import banner from "/banner.png";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/contact");
+  };
+
   return (
     <>
       <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4 bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300 flex flex-col md:flex-row my-10">
@@ -39,7 +45,10 @@ function HeroSection() {
               />
             </label>
           </div>
-          <button className="btn text-white btn-primary dark:btn-primary mt-5">
+          <button
+            className="btn text-white btn-primary dark:btn-primary mt-5"
+            onClick={handleClick}
+          >
             Send Email
           </button>
         </div>
