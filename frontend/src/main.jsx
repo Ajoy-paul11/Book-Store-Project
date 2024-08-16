@@ -34,11 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: (
-          <ProtectedRoute>
-            <Contact />
-          </ProtectedRoute>
-        ),
+        element: <Contact />,
       },
       {
         path: "/about",
