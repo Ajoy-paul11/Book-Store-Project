@@ -49,5 +49,53 @@ const addToBookList = asyncHandler(async (req, res) => {
 })
 
 
+const updateBookDetails = asyncHandler(async (req, res) => {
+    const { id } = req.params
 
-export { getBooksList, addToBookList }
+    const getBook = await Book.findById(id)
+
+    if (!getBook) {
+        throw new ApiError(400, "Book doesn't exist")
+    }
+
+    const { title, genre } = req.body
+
+    if (!title?.trim() && !genre?.trim()) {
+        throw new ApiError(400, "No field is given to update")
+    }
+
+    if (title?.trim()) {
+        const updatedBook = await Book.findByIdAndUpdate(id,
+            { $set: { title } },
+            { new: true }
+        )
+
+        return res
+            .status(200)
+            .json(new ApiResponse(200, updatedBook, "Book updated successfully"))
+
+    } else if (genre?.trim()) {
+        const updateBook = await Book.findByIdAndUpdate(id,
+            { $set: { genre } },
+            { new: true }
+        )
+
+        return res
+            .status(200)
+            .json(new ApiResponse(200, updateBook, "Book updated successfully"))
+
+    } else {
+        const updateBook = await Book.findByIdAndUpdate(id,
+            { $set: { title, genre } },
+            { new: true }
+        )
+
+        return res
+            .status(200)
+            .json(new ApiResponse(200, updateBook, "Book details updated successfully"))
+    }
+})
+
+
+
+export { getBooksList, addToBookList, updateBookDetails }
