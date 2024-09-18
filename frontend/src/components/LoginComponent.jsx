@@ -20,7 +20,7 @@ function LoginComponent() {
     };
 
     await axios
-      .post("http://localhost:8000/api/v1/users/login", userData)
+      .post("https://book-store-backend-3an0.onrender.com/api/v1/users/login", userData)
       .then((res) => {
         if (res.data.data) {
           toast.success("User logged In successfully🙏");

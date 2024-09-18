@@ -7,7 +7,7 @@ function AboutComponent() {
       <div className="mockup-browser border border-black dark:border-white bg-slate-200 text-black dark:bg-slate-900 dark:text-slate-300">
         <div className="mockup-browser-toolbar  ">
           <div className="input text-blue-400">
-            <a href="https://linkedin.com/in/ajoypaul" target="_blank">
+            <a href="https://github.com/Ajoy-paul11/Book-Store-Project" target="_blank">
               Visit the Codebase of this Project
             </a>
           </div>
