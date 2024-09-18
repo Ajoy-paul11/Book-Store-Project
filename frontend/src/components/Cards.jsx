@@ -21,7 +21,12 @@ function Cards({ item, className }) {
             <div className="card-actions justify-between">
               <div className="badge badge-outline">${item.price}</div>
               <div className="badge outline-1 border-white p-3 hover:bg-blue-600 hover:text-white duration-300 transition-all ease-in">
-                Buy Now
+                <a
+                  href="https://drive.google.com/drive/folders/1HYHs05Ik5OjGnE_0-UO2QpHs4g4m1j-y?usp=drive_link"
+                  target="_blank"
+                >
+                  Download
+                </a>
               </div>
             </div>
           </div>
