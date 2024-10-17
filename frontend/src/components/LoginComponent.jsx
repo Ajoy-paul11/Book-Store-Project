@@ -20,7 +20,10 @@ function LoginComponent() {
     };
 
     await axios
-      .post("https://book-store-backend-3an0.onrender.com/api/v1/users/login", userData)
+      .post(
+        "https://book-store-backend-3an0.onrender.com/api/v1/users/login",
+        userData
+      )
       .then((res) => {
         if (res.data.data) {
           toast.success("User logged In successfully🙏");
@@ -30,27 +33,27 @@ function LoginComponent() {
         }
       })
       .catch((err) => {
-        if (err.response) {
-          extractErrorAndAlert(err.response.data);
+        if (err.response && err.response.data) {
+          toast.error(err.response.data.message);
         } else {
-          alert("An error occurred, Please try again");
+          toast.error("Unexpected error occurred, Please try again");
         }
       });
   };
 
-  function extractErrorAndAlert(htmlResponse) {
-    // Use a regular expression to find the error message
-    const errorRegex = /<pre>Error: (.+?)<br>/;
-    const match = htmlResponse.match(errorRegex);
+  // function extractErrorAndAlert(htmlResponse) {
+  //   // Use a regular expression to find the error message
+  //   const errorRegex = /<pre>Error: (.+?)<br>/;
+  //   const match = htmlResponse.match(errorRegex);
 
-    if (match && match[1]) {
-      // If a match is found, show it in an alert
-      toast.error("Error: " + match[1]);
-    } else {
-      // If no match is found, show a generic error message
-      toast.error("An error occurred. Please try again.");
-    }
-  }
+  //   if (match && match[1]) {
+  //     // If a match is found, show it in an alert
+  //     toast.error("Error: " + match[1]);
+  //   } else {
+  //     // If no match is found, show a generic error message
+  //     toast.error("An error occurred. Please try again.");
+  //   }
+  // }
 
   return (
     <>
