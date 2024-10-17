@@ -4,17 +4,17 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 
-const registerUser = asyncHandler(async (req, res) => {
+const registerUser = asyncHandler(async (req, res, next) => {
     const { fullName, email, password } = req.body
 
     if ([fullName, email, password].some(field => field?.trim() === "")) {
-        throw new ApiError(400, "Fields can't be empty")
+        return next(new ApiError(401, "Fields can't be empty"))
     }
 
     const getUser = await User.findOne({ email })
 
     if (getUser) {
-        throw new ApiError(400, "User already exist with same Email")
+        return next(new ApiError(404, "User already exist with same Email"))
     }
 
     const user = await User.create({
@@ -25,35 +25,31 @@ const registerUser = asyncHandler(async (req, res) => {
 
     const createdUser = await User.findById(user._id).select("-password")
 
-    if (!createdUser) {
-        throw new ApiError(500, "Something occurred while registering the user")
-    }
-
     return res
-        .status(200)
+        .status(201)
         .json(
-            new ApiResponse(200, createdUser, "User registered successfully")
+            new ApiResponse(201, createdUser, "User registered successfully")
         )
 })
 
 
-const loginUser = asyncHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body
 
     if (!email?.trim() || !password?.trim()) {
-        throw new ApiError(400, "Both fields are required to login")
+        return next(new ApiError(401, "Both fields are required to login"))
     }
 
     const findUser = await User.findOne({ email })
 
     if (!findUser) {
-        throw new ApiError(400, "User does not exist")
+        return next(new ApiError(404, "User does not exist"))
     }
 
     const checkPassword = await findUser.isPasswordCorrect(password)
 
     if (!checkPassword) {
-        throw new ApiError(401, "Invalid User Credentials")
+        return next(new ApiError(401, "Invalid User Credentials"))
     }
 
     const loggedUser = await User.findById(findUser._id).select("-password")
